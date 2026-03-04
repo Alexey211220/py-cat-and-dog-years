@@ -30,7 +30,7 @@ class TestConvertToHumanAges:
         [
             (-1, 28),
             (28, -1),
-            (-5, -7),
+            (-5, -7)
         ],
     )
     def test_raises_value_error_for_negative_ages(
@@ -39,4 +39,20 @@ class TestConvertToHumanAges:
         dog_age: int
     ) -> None:
         with pytest.raises(ValueError):
+            main.get_human_age(cat_age, dog_age)
+
+    @pytest.mark.parametrize(
+        "cat_age,dog_age",
+        [
+            ("3", 12),
+            ("4", 3.14),
+            (4, 13.5)
+        ],
+    )
+    def test_raises_type_error_for_non_int_ages(
+        self,
+        cat_age: int,
+        dog_age: int
+    ) -> None:
+        with pytest.raises(TypeError):
             main.get_human_age(cat_age, dog_age)
