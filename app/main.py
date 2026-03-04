@@ -12,9 +12,7 @@ def get_human_age(cat_age: int, dog_age: int) -> list:
 def age_converter(age: int, step: int) -> int:
     animal_age = age
     res = 0
-    if animal_age < 15:
-        pass
-    elif animal_age < 24:
+    if 14 < animal_age < 24:
         res += 1
     elif animal_age >= 24:
         res += (2 + (age - 24) // step)
